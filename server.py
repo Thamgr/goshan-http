@@ -18,10 +18,9 @@ def should_click():
     timestamp = data.get('timestamp')
     
     # Декодируем base64 в numpy array
-    image_bytes = base64.b64decode(image_base64)
-    image_buffer = BytesIO(image_bytes)
-    image_pil = Image.open(image_buffer)
-    image_array = np.array(image_pil)
+    image = base64.b64decode(image_base64)
+    image = Image.open(io.BytesIO(image)).convert("RGB")
+    image_array = np.array(image)
     
     status = goshan.predict(image_array, ms_since_click)
     return jsonify({'status': status})
