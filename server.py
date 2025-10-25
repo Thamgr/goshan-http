@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-from goshan_brain import GoshanBrain
+from model import GoshanBrain
 import base64
 import numpy as np
 from PIL import Image
