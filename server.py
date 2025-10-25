@@ -19,7 +19,7 @@ def should_click():
     
     # Декодируем base64 в numpy array
     image = base64.b64decode(image_base64)
-    image = Image.open(io.BytesIO(image)).convert("RGB")
+    image = Image.open(BytesIO(image)).convert("RGB")
     image_array = np.array(image)
     
     status = goshan.predict(image_array, ms_since_click)
